@@ -1,0 +1,27 @@
+#Node
+node_modules
+data
+
+#Mac
+.DS_Store
+
+#IDE
+*.iml
+*.ipr
+.idea
+/.vscode
+
+#dotenv
+.env
+.env*
+
+#logs
+logs/
+
+# misc
+*.stackdump
+
+# files
+*.pem
+*.log
+*.log.*

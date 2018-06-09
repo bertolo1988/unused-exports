@@ -1,0 +1,34 @@
+{
+  "name": "unused-exports",
+  "version": "0.0.1",
+  "description": "Retrieves unused js exports in a project",
+  "main": "start.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "test-only": "mocha",
+    "clean": "rm -rf node_modules",
+    "lint": "eslint . --fix"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "unused",
+    "maintenance",
+    "exports",
+    "javascript"
+  ],
+  "author": "bertolo1988 <tiagobertolo@gmail.com> (https://github.com/bertolo1988)",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^4.19.1",
+    "lodash": "^4.17.10"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "should": "^13.2.1"
+  }
+}

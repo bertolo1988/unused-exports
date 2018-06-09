@@ -1,0 +1,42 @@
+{
+    "extends": [
+      "eslint:recommended"
+    ],
+    "env": {
+      "node": true,
+      "es6": true,
+      "mocha": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "rules": {
+      "semi": [
+        "error",
+        "never"
+      ],
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "next"
+        }
+      ],
+      "space-before-function-paren": "off",
+      "complexity": [
+        "error",
+        10
+      ],
+      "max-depth": [
+        "error",
+        3
+      ],
+      "max-statements": [
+        "error",
+        15
+      ],
+      "object-shorthand": [
+        "error",
+        "always"
+      ]
+    }
+  }
