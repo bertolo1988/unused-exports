@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bertolo1988/is-module-used.svg?branch=master)](https://travis-ci.org/bertolo1988/is-module-used)
+[![Build Status](https://travis-ci.org/bertolo1988/unused-exports.svg?branch=master)](https://travis-ci.org/bertolo1988/unused-exports)
 
-# is-module-used
+# unused-exports
 Study js modules usage within a project
