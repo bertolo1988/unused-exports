@@ -7,6 +7,7 @@
     "unused-exports": "./bin/unused-exports.js"
   },
   "scripts": {
+    "refresh": "npm run clean && npm i && npm run test",
     "pretest": "npm run lint",
     "test": "mocha",
     "test-only": "mocha",

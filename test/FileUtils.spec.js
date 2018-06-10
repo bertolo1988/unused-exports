@@ -9,6 +9,8 @@ describe('FileUtils', function() {
             let projectPath = path.join(__dirname, '../sample-project')
             let allFiles = FileUtils.getAllFiles(projectPath, '.js')
             const expectedResult = [
+                path.join(__dirname, '../sample-project/ArrayModule.js'),
+                path.join(__dirname, '../sample-project/FunctionModule.js'),
                 path.join(__dirname, '../sample-project/ModuleExample1.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
                 path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
@@ -35,6 +37,8 @@ describe('FileUtils', function() {
             let ignore = path.join(__dirname, '../sample-project/folder1/folder2')
             let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
             const expectedResult = [
+                path.join(__dirname, '../sample-project/ArrayModule.js'),
+                path.join(__dirname, '../sample-project/FunctionModule.js'),
                 path.join(__dirname, '../sample-project/ModuleExample1.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
                 path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
@@ -46,6 +50,8 @@ describe('FileUtils', function() {
             let ignore = path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js')
             let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
             const expectedResult = [
+                path.join(__dirname, '../sample-project/ArrayModule.js'),
+                path.join(__dirname, '../sample-project/FunctionModule.js'),
                 path.join(__dirname, '../sample-project/ModuleExample1.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
                 path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
@@ -69,6 +75,8 @@ describe('FileUtils', function() {
                 path.join(__dirname, '../sample-project/ModuleExample1.js')]
             let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
             const expectedResult = [
+                path.join(__dirname, '../sample-project/ArrayModule.js'),
+                path.join(__dirname, '../sample-project/FunctionModule.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
                 path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
             allFiles.should.be.eql(expectedResult)
@@ -95,7 +103,7 @@ describe('FileUtils', function() {
         })
     })
 
-    describe.only('getListOfNamedExports', () => {
+    describe('getListOfNamedExports', () => {
         it('should get UnusedModule1.js list of exports', () => {
             let filePath = path.join(__dirname, '../sample-project/UnusedModule1')
             let exportsList = FileUtils.getListOfNamedExports(filePath)
