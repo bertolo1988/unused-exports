@@ -8,7 +8,8 @@
     "test": "mocha",
     "test-only": "mocha",
     "clean": "rm -rf node_modules",
-    "lint": "DEBUG=eslint:cli eslint . --fix"
+    "lint": "eslint . --fix",
+    "demo": "DEBUG=unused-exports:cli node bin/unused-exports.js --path ./src"
   },
   "keywords": [
     "npm",
