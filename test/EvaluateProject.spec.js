@@ -76,5 +76,16 @@ describe('EvaluateProject', function() {
                 { file: path.join(__dirname, '../sample-project/folder1/folder2/UnusedModule2.js'), unusedExports: ['lol'] }]
             unusedExports.should.be.eql(expectedResult)
         })
+
+        it('should retrieve all unused exports if we ignore ModuleExample2 and folder2', () => {
+            let ignore = [
+                path.join(__dirname, '../sample-project/folder1/folder2'),
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
+            let unusedExports = EvaluateProject.getAllUnusedExports(projectPath, ignore)
+            const expectedResult = [
+                { file: path.join(__dirname, '../sample-project/ModuleExample1.js'), unusedExports: ['bb', 'aa', 'jjj'] },
+                { file: path.join(__dirname, '../sample-project/UnusedModule1.js'), unusedExports: ['lmao', 'aaa'] }]
+            unusedExports.should.be.eql(expectedResult)
+        })
     })
 })

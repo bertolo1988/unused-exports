@@ -61,6 +61,18 @@ describe('FileUtils', function() {
             let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
             allFiles.length.should.be.eql(0)
         })
+
+        it('should list files with .js extension but ignore an array of paths', () => {
+            let projectPath = path.join(__dirname, '../sample-project')
+            let ignore = [
+                path.join(__dirname, '../sample-project/folder1/folder2'),
+                path.join(__dirname, '../sample-project/ModuleExample1.js')]
+            let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
+            const expectedResult = [
+                path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
+            allFiles.should.be.eql(expectedResult)
+        })
     })
 
     describe('getFileNameFromPath', () => {

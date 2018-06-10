@@ -3,8 +3,21 @@ const path = require('path')
 const isPathInside = require('is-path-inside')
 const debug = require('debug')('unused-exports:file-utils')
 
+function isPathInsideIgnore(myFile, ignore) {
+    if (Array.isArray(ignore)) {
+        for (let entry of ignore) {
+            if (isPathInside(myFile, entry) || myFile === entry) {
+                return true
+            }
+        }
+        return false
+    } else {
+        return isPathInside(myFile, ignore) || myFile === ignore
+    }
+}
+
 function isIgnored(myFile, ignore) {
-    return ignore && (isPathInside(myFile, ignore) || myFile === ignore)
+    return ignore && isPathInsideIgnore(myFile, ignore)
 }
 
 // recursively list all files and filter them by termination
