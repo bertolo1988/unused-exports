@@ -8,6 +8,9 @@ function isIgnored(myFile, ignore) {
 
 // recursively list all files and filter them by termination
 function getAllFiles(dir, fileExtension, ignore) {
+    if (!fs.lstatSync(dir).isDirectory()) {
+        throw new Error('Path must point to a directory')
+    }
     return fs.readdirSync(dir).reduce((files, file) => {
         const name = path.join(dir, file)
         const isDirectory = fs.statSync(name).isDirectory()

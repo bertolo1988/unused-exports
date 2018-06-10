@@ -1,4 +1,4 @@
-require('should')
+const should = require('should')
 const path = require('path')
 
 const FileUtils = require('../src/FileUtils')
@@ -16,6 +16,12 @@ describe('FileUtils', function() {
                 path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js'),
                 path.join(__dirname, '../sample-project/folder1/folder2/UnusedModule2.js')]
             allFiles.should.be.eql(expectedResult)
+        })
+
+        it('should give an error when trying to list files on non directory', () => {
+            let projectPath = path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js')
+            should(function() { FileUtils.getAllFiles(projectPath, '.js') })
+                .throw('Path must point to a directory')
         })
 
         it('should list no files with .xs file extension', () => {

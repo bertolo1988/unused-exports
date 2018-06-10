@@ -1,10 +1,10 @@
 {
   "name": "unused-exports",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "Retrieves unused js exports in a project",
   "main": "./src/EvaluateProject.js",
   "bin":{
-    "unusex-exports":"./bin/unused-exports.js"
+    "unused-exports":"./bin/unused-exports.js"
   },
   "scripts": {
     "pretest": "npm run lint",
@@ -12,7 +12,8 @@
     "test-only": "mocha",
     "clean": "rm -rf node_modules",
     "lint": "eslint . --fix",
-    "demo": "DEBUG=unused-exports:cli node bin/unused-exports.js --path ./src"
+    "demo": "DEBUG=unused-exports:cli node bin/unused-exports.js --path ./src",
+    "aaa":"unused-exports --path ./src"
   },
   "keywords": [
     "npm",
