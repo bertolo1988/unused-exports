@@ -21,10 +21,9 @@ function getModuleUsedExportsByModule(userModulePath, usedModulePath) {
 }
 
 function isModuleBeingUsedByModule(userModulePath, usedModulePath) {
-    let fileContent = fs.readFileSync(userModulePath, 'utf8')
-    let regex = new RegExp(FileUtils.getFileNameFromPath(usedModulePath), 'g')
-    let count = (fileContent.match(regex) || []).length
-    return count > 0
+    let requiresMap = MapRequires(userModulePath)
+    let usedModuleFileName = FileUtils.getFileNameFromPath(usedModulePath)
+    return requiresMap.map(entry => entry.module).indexOf(usedModuleFileName) > -1
 }
 
 module.exports = {

@@ -19,6 +19,7 @@ describe('EvaluateModule', function() {
             usedExports.should.be.eql(['aa', 'dd'])
         })
     })
+
     describe('isModuleBeingUsedByModule', () => {
         it('should successfully acknowledge that ModuleExample2 is being used by ModuleExample4', () => {
             let userM = path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js')

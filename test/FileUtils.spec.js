@@ -56,6 +56,7 @@ describe('FileUtils', function() {
             allFiles.length.should.be.eql(0)
         })
     })
+
     describe('getFileNameFromPath', () => {
         it('should get UnusedModule1.js file name without extension', () => {
             let filePath = path.join(__dirname, '../sample-project/UnusedModule1')
@@ -75,6 +76,7 @@ describe('FileUtils', function() {
             fileName.should.be.eql('MapRequires.spec')
         })
     })
+
     describe('getListOfExports', () => {
         it('should get UnusedModule1.js list of exports', () => {
             let filePath = path.join(__dirname, '../sample-project/UnusedModule1')

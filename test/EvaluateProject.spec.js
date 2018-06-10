@@ -39,6 +39,7 @@ describe('EvaluateProject', function() {
             unusedExports.should.be.eql(['bb', 'cc', 'ee'])
         })
     })
+
     describe('getAllUnusedExports', () => {
         it('should retrieve all unused exports by all files in sample project', () => {
             let unusedExports = EvaluateProject.getAllUnusedExports(projectPath)
