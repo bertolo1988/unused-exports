@@ -14,6 +14,7 @@ describe('FileUtils', function() {
                 path.join(__dirname, '../sample-project/ModuleExample1.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
                 path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
+                path.join(__dirname, '../sample-project/folder1/NamedFunction.js'),
                 path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample3.js'),
                 path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js'),
                 path.join(__dirname, '../sample-project/folder1/folder2/UnusedModule2.js')]
@@ -41,7 +42,8 @@ describe('FileUtils', function() {
                 path.join(__dirname, '../sample-project/FunctionModule.js'),
                 path.join(__dirname, '../sample-project/ModuleExample1.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
-                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
+                path.join(__dirname, '../sample-project/folder1/NamedFunction.js'),]
             allFiles.should.be.eql(expectedResult)
         })
 
@@ -55,6 +57,7 @@ describe('FileUtils', function() {
                 path.join(__dirname, '../sample-project/ModuleExample1.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
                 path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
+                path.join(__dirname, '../sample-project/folder1/NamedFunction.js'),
                 path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample3.js'),
                 path.join(__dirname, '../sample-project/folder1/folder2/UnusedModule2.js')]
             allFiles.should.be.eql(expectedResult)
@@ -78,7 +81,8 @@ describe('FileUtils', function() {
                 path.join(__dirname, '../sample-project/ArrayModule.js'),
                 path.join(__dirname, '../sample-project/FunctionModule.js'),
                 path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
-                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
+                path.join(__dirname, '../sample-project/folder1/NamedFunction.js'),]
             allFiles.should.be.eql(expectedResult)
         })
     })

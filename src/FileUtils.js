@@ -55,7 +55,7 @@ function getListOfNamedExports(myModulePath) {
             return []
         }
     } catch (err) {
-        debug('Failed to list exports!', err)
+        debug('Failed to list exports! %O', err)
         return []
     }
 }

@@ -18,6 +18,13 @@ describe('EvaluateModule', function() {
             let usedExports = EvaluateModule.getModuleUsedExportsByModule(userM, usedM)
             usedExports.should.be.eql(['aa', 'dd'])
         })
+
+        it('should successfully get ModuleExample2 exports that NamedFunction uses', () => {
+            let userM = path.join(__dirname, '../sample-project/folder1/NamedFunction.js')
+            let usedM = path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')
+            let usedExports = EvaluateModule.getModuleUsedExportsByModule(userM, usedM)
+            usedExports.should.be.eql([])
+        })
     })
 
     describe('isModuleBeingUsedByModule', () => {

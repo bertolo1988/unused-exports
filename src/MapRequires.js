@@ -1,4 +1,5 @@
 const fs = require('fs')
+const debug = require('debug')('unused-exports:map-requires')
 
 function getRequireIndex(fileContent) {
     let regex = new RegExp('require', 'g')
@@ -48,6 +49,7 @@ function mapRequires(modulePath) {
             module: getRequireModule(fileContent, index)
         })
     }
+    debug('Module: %s mapped requires %O', modulePath, result)
     return result
 }
 
