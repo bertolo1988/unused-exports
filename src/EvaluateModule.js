@@ -24,7 +24,7 @@ function getModuleUsedExportsByModule(userModulePath, usedModulePath) {
     debug('UsedModulePath', usedModulePath)
     let requiresMap = MapRequires(userModulePath)
     let usedVariable = getUsedModuleVariable(requiresMap, FileUtils.getFileNameFromPath(usedModulePath))
-    let moduleExports = FileUtils.getListOfExports(usedModulePath)
+    let moduleExports = FileUtils.getListOfNamedExports(usedModulePath)
     return moduleExports.filter(exp => isMethodUsed(userModulePath, usedVariable, exp))
 }
 

@@ -46,10 +46,14 @@ function getFileNameFromPath(myPath) {
     return stripFileExtension(myPath.replace(/^.*[\\/]/, ''))
 }
 
-function getListOfExports(myModulePath) {
+function getListOfNamedExports(myModulePath) {
     try {
         let myModule = require(myModulePath)
-        return Object.keys(myModule)
+        if (typeof myModule === 'object' && !Array.isArray(myModule)) {
+            return Object.keys(myModule)
+        } else {
+            return []
+        }
     } catch (err) {
         debug('Failed to list exports!', err)
         return []
@@ -59,5 +63,5 @@ function getListOfExports(myModulePath) {
 module.exports = {
     getAllFiles,
     getFileNameFromPath,
-    getListOfExports
+    getListOfNamedExports
 }

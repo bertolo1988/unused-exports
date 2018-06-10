@@ -95,16 +95,16 @@ describe('FileUtils', function() {
         })
     })
 
-    describe('getListOfExports', () => {
+    describe.only('getListOfNamedExports', () => {
         it('should get UnusedModule1.js list of exports', () => {
             let filePath = path.join(__dirname, '../sample-project/UnusedModule1')
-            let exportsList = FileUtils.getListOfExports(filePath)
+            let exportsList = FileUtils.getListOfNamedExports(filePath)
             exportsList.should.be.eql(['lmao', 'aaa'])
         })
 
         it('should get package-lock.json list of exports lol', () => {
             let filePath = path.join(__dirname, '../package-lock.json')
-            let exportsList = FileUtils.getListOfExports(filePath)
+            let exportsList = FileUtils.getListOfNamedExports(filePath)
             exportsList.should.be.eql(['name',
                 'version',
                 'lockfileVersion',
@@ -114,8 +114,20 @@ describe('FileUtils', function() {
 
         it('should get ModuleExample1.js list of exports', () => {
             let filePath = path.join(__dirname, '../sample-project/ModuleExample1')
-            let exportsList = FileUtils.getListOfExports(filePath)
+            let exportsList = FileUtils.getListOfNamedExports(filePath)
             exportsList.should.be.eql(['bb', 'aa', 'jjj'])
+        })
+
+        it('should get FunctionModule.js list of exports', () => {
+            let filePath = path.join(__dirname, '../sample-project/FunctionModule')
+            let exportsList = FileUtils.getListOfNamedExports(filePath)
+            exportsList.should.be.eql([])
+        })
+
+        it('should get ArrayModule.js list of exports', () => {
+            let filePath = path.join(__dirname, '../sample-project/ArrayModule')
+            let exportsList = FileUtils.getListOfNamedExports(filePath)
+            exportsList.should.be.eql([])
         })
     })
 })

@@ -3,13 +3,13 @@
 
 # unused-exports
 
-Tries to find unused javascript module exports. 
+Tries to find javascript module named exports that are not being used by other javascript modules.
 
 ## How it works and how you should use it
 
-Tries to find where a given module exported methods are being used by reading the code.
+Tries to find where a given module named exports are being used by reading the code without interpreting it.
 
-This method is not 100% reliable but still might help you finding dead or unnecessary code in big projects.
+This method has several limitations but still might help you finding dead or unnecessary code in big projects.
 
 You should manually confirm the results before removing any potential dead code. 
 

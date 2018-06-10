@@ -22,7 +22,7 @@ function getModuleUsedExports(projectPath, modulePath, ignore) {
 
 function getModuleUnusedExports(projectPath, modulePath, ignore) {
     let usedExports = getModuleUsedExports(projectPath, modulePath, ignore)
-    return _.difference(FileUtils.getListOfExports(modulePath), usedExports)
+    return _.difference(FileUtils.getListOfNamedExports(modulePath), usedExports)
 }
 
 function getAllUnusedExports(projectPath, ignore) {
