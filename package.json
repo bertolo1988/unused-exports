@@ -12,8 +12,7 @@
     "test-only": "mocha",
     "clean": "rm -rf node_modules",
     "lint": "eslint . --fix",
-    "demo": "DEBUG=unused-exports:cli node bin/unused-exports.js --path ./src",
-    "aaa":"unused-exports --path ./src"
+    "demo": "DEBUG=unused-exports:cli node bin/unused-exports.js --path ./src"
   },
   "keywords": [
     "npm",
@@ -33,7 +32,7 @@
     "lodash": "^4.17.10"
   },
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">= 7.0.0"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
