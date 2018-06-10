@@ -1,8 +1,11 @@
 {
   "name": "unused-exports",
-  "version": "0.0.1",
+  "version": "0.0.1-beta",
   "description": "Retrieves unused js exports in a project",
-  "main": "start.js",
+  "main": "./src/EvaluateProject.js",
+  "bin":{
+    "unusex-exports":"./bin/unused-exports.js"
+  },
   "scripts": {
     "pretest": "npm run lint",
     "test": "mocha",
@@ -19,6 +22,7 @@
     "exports",
     "javascript"
   ],
+  "preferGlobal": true,
   "author": "bertolo1988 <tiagobertolo@gmail.com> (https://github.com/bertolo1988)",
   "license": "MIT",
   "dependencies": {
