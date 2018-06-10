@@ -3,8 +3,8 @@
   "version": "0.0.3-beta",
   "description": "Retrieves unused js exports in a project",
   "main": "./src/EvaluateProject.js",
-  "bin":{
-    "unused-exports":"./bin/unused-exports.js"
+  "bin": {
+    "unused-exports": "./bin/unused-exports.js"
   },
   "scripts": {
     "pretest": "npm run lint",
