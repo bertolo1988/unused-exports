@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const isPathInside = require('is-path-inside')
+const debug = require('debug')('unused-exports:file-utils')
 
 function isIgnored(myFile, ignore) {
     return ignore && (isPathInside(myFile, ignore) || myFile === ignore)
@@ -33,8 +34,13 @@ function getFileNameFromPath(myPath) {
 }
 
 function getListOfExports(myModulePath) {
-    let myModule = require(myModulePath)
-    return Object.keys(myModule)
+    try {
+        let myModule = require(myModulePath)
+        return Object.keys(myModule)
+    } catch (err) {
+        debug('Failed to list exports!', err)
+        return []
+    }
 }
 
 module.exports = {
