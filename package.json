@@ -1,6 +1,6 @@
 {
   "name": "unused-exports",
-  "version": "0.0.4-beta",
+  "version": "0.0.5-beta",
   "description": "Retrieves unused js exports in a project",
   "main": "./src/EvaluateProject.js",
   "bin": {

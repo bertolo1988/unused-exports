@@ -24,14 +24,14 @@ describe('EvaluateModule', function() {
         it('should successfully acknowledge that ModuleExample2 is being used by ModuleExample4', () => {
             let userM = path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js')
             let usedM = path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')
-            let isModuleUsed = EvaluateModule.isModuleBeingUsedByModule(userM, usedM)
+            let isModuleUsed = EvaluateModule.isModuleBeingUsedByModule(usedM, userM)
             isModuleUsed.should.be.true()
         })
 
         it('should successfully acknowledge that UnusedModule2 is not being used by ModuleExample1', () => {
             let userM = path.join(__dirname, '../sample-project/ModuleExample1.js')
             let usedM = path.join(__dirname, '../sample-project/UnusedModule1.js')
-            let isModuleUsed = EvaluateModule.isModuleBeingUsedByModule(userM, usedM)
+            let isModuleUsed = EvaluateModule.isModuleBeingUsedByModule(usedM, userM)
             isModuleUsed.should.be.false()
         })
     })
