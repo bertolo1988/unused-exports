@@ -22,6 +22,10 @@
     "exports",
     "javascript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bertolo1988/unused-exports.git"
+  },
   "preferGlobal": true,
   "author": "bertolo1988 <tiagobertolo@gmail.com> (https://github.com/bertolo1988)",
   "license": "MIT",
@@ -31,6 +35,10 @@
     "is-path-inside": "^2.0.0",
     "lodash": "^4.17.10"
   },
+  "bugs": {
+    "url": "https://github.com/bertolo1988/unused-exports/issues"
+  },
+  "homepage": "https://github.com/bertolo1988/unused-exports#readme",
   "engines": {
     "node": ">= 7.0.0"
   },
