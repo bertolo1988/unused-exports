@@ -4,15 +4,55 @@ const path = require('path')
 const FileUtils = require('../src/FileUtils')
 
 describe('FileUtils', function() {
-    describe('getAllFiles', () => {
+    describe.only('getAllFiles', () => {
         it('should list all .js files on sample project', () => {
             let projectPath = path.join(__dirname, '../sample-project')
             let allFiles = FileUtils.getAllFiles(projectPath, '.js')
-            allFiles.length.should.be.eql(6)
+            const expectedResult = [
+                path.join(__dirname, '../sample-project/ModuleExample1.js'),
+                path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
+                path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample3.js'),
+                path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js'),
+                path.join(__dirname, '../sample-project/folder1/folder2/UnusedModule2.js')]
+            allFiles.should.be.eql(expectedResult)
         })
+
         it('should list no files with .xs file extension', () => {
             let projectPath = path.join(__dirname, '../sample-project')
             let allFiles = FileUtils.getAllFiles(projectPath, '.xs')
+            allFiles.length.should.be.eql(0)
+        })
+
+        it('should list files with .js extension but ignore a specific folder', () => {
+            let projectPath = path.join(__dirname, '../sample-project')
+            let ignore = path.join(__dirname, '../sample-project/folder1/folder2')
+            let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
+            const expectedResult = [
+                path.join(__dirname, '../sample-project/ModuleExample1.js'),
+                path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js')]
+            allFiles.should.be.eql(expectedResult)
+        })
+
+        it.only('should list files with .js extension but ignore a specific file', () => {
+            let projectPath = path.join(__dirname, '../sample-project')
+            let ignore = path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js')
+            let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
+            const expectedResult = [
+                path.join(__dirname, '../sample-project/ModuleExample1.js'),
+                path.join(__dirname, '../sample-project/../sample-project/UnusedModule1.js'),
+                path.join(__dirname, '../sample-project/folder1/ModuleExample2.js'),
+                path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample3.js'),
+                path.join(__dirname, '../sample-project/folder1/folder2/UnusedModule2.js')]
+            allFiles.should.be.eql(expectedResult)
+
+        })
+
+        it('should list files with .js extension but ignore his own path', () => {
+            let projectPath = path.join(__dirname, '../sample-project')
+            let ignore = path.join(__dirname, '../sample-project')
+            let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
             allFiles.length.should.be.eql(0)
         })
     })

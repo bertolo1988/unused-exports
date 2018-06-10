@@ -1,7 +1,15 @@
 #!/usr/bin/env node
-var path = require('path')
-var args = process.argv.splice(process.execArgv.length + 2)
-var EvaluateProject = require('../src/EvaluateProject')
-var myPath = path.resolve(__dirname, args[0])
-console.log('path:', myPath)
+/* eslint no-console:off */
+const path = require('path')
+const EvaluateProject = require('../src/EvaluateProject')
+
+let pathIndex = (process.argv.indexOf("--path") > -1)
+let ignore = (process.argv.indexOf("--ignore") > -1)
+
+
+
+console.log(myPath)
 console.log(EvaluateProject.getAllUnusedExports(myPath))
+
+
+// ignore path flag

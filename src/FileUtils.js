@@ -1,13 +1,23 @@
 const fs = require('fs')
 const path = require('path')
+const isPathInside = require('is-path-inside')
+
+function isIgnored(myFile, ignore) {
+    return ignore && (isPathInside(myFile, ignore) || myFile === ignore)
+}
 
 // recursively list all files and filter them by termination
-function getAllFiles(dir, fileExtension) {
+function getAllFiles(dir, fileExtension, ignore) {
     return fs.readdirSync(dir).reduce((files, file) => {
         const name = path.join(dir, file)
         const isDirectory = fs.statSync(name).isDirectory()
-        const isTargetFile = file.endsWith(fileExtension)
-        return isDirectory ? [...files, ...getAllFiles(name, fileExtension)] : isTargetFile ? [...files, name] : [...files]
+        const isFileIgnored = isIgnored(path.join(dir, file), ignore)
+        if (isDirectory && !isFileIgnored) {
+            return [...files, ...getAllFiles(name, fileExtension, ignore)]
+        } else {
+            const isTargetFile = file.endsWith(fileExtension)
+            return isTargetFile && !isFileIgnored ? [...files, name] : [...files]
+        }
     }, [])
 }
 
