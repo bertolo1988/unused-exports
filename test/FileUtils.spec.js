@@ -4,7 +4,7 @@ const path = require('path')
 const FileUtils = require('../src/FileUtils')
 
 describe('FileUtils', function() {
-    describe.only('getAllFiles', () => {
+    describe('getAllFiles', () => {
         it('should list all .js files on sample project', () => {
             let projectPath = path.join(__dirname, '../sample-project')
             let allFiles = FileUtils.getAllFiles(projectPath, '.js')
@@ -35,7 +35,7 @@ describe('FileUtils', function() {
             allFiles.should.be.eql(expectedResult)
         })
 
-        it.only('should list files with .js extension but ignore a specific file', () => {
+        it('should list files with .js extension but ignore a specific file', () => {
             let projectPath = path.join(__dirname, '../sample-project')
             let ignore = path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js')
             let allFiles = FileUtils.getAllFiles(projectPath, '.js', ignore)
