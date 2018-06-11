@@ -23,7 +23,7 @@ debug('ignore:', ignoreValue)
 function printResults(results) {
     if (results && results.length > 0) {
         for (let entry of results) {
-            console.log('\nFile:\t', chalk.red.bold(entry.file))
+            console.log('File:\t', chalk.red.bold(entry.file))
             console.log('Unused exports:')
             for (let exp of entry.unusedExports) {
                 console.log('\t', chalk.blue(exp))
