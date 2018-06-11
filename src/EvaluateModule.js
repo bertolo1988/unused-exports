@@ -16,7 +16,12 @@ function getUsedModuleVariable(requiresMap, moduleName) {
 
 function isMethodUsed(userModule, variableName, methodName) {
     let fileContent = fs.readFileSync(userModule, 'utf8')
-    return fileContent.includes(`${variableName}.${methodName}`) || fileContent.includes(`${variableName}['${methodName}']`) || fileContent.includes(`${variableName}["${methodName}"]`)
+    if (!variableName) {
+        // in case method is imported using destructuring
+        return fileContent.includes(methodName)
+    } else {
+        return fileContent.includes(`${variableName}.${methodName}`) || fileContent.includes(`${variableName}['${methodName}']`) || fileContent.includes(`${variableName}["${methodName}"]`)
+    }
 }
 
 /**

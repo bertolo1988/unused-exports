@@ -24,7 +24,9 @@ function getRequireVariable(fileContent, index) {
         }
     }
     let stringBeforeAssign = fileContent.substring(0, assignIndex)
-    return stringBeforeAssign.split(' ').filter(str => str.length > 0).pop()
+    let variableName = stringBeforeAssign.split(' ').filter(str => str.length > 0).pop()
+    // if it starts with } it means no package variable is used and methods are used directly
+    return variableName && variableName.startsWith('}') ? undefined : variableName
 }
 
 function replaceAll(str, find, replace) {

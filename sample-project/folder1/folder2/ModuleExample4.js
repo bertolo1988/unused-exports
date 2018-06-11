@@ -1,3 +1,4 @@
-const m = require('../ModuleExample2')
-m.dd();
-m['aa']();
+const { dd, aa } = require('../ModuleExample2')
+
+dd()
+aa()

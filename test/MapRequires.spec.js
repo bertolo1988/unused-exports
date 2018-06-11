@@ -18,6 +18,6 @@ describe('MapRequires', function() {
 
   it('should successfully map ModuleExample4.js', () => {
     let result = MapRequires(path.join(__dirname, '../sample-project/folder1/folder2/ModuleExample4.js'))
-    result.should.be.eql([{ module: 'ModuleExample2', variable: 'm' }])
+    result.should.be.eql([{ variable: undefined, module: 'ModuleExample2' }])
   })
 })
