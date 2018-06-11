@@ -2,6 +2,7 @@
 /* eslint no-console:off */
 const debug = require('debug')('unused-exports:cli')
 const path = require('path')
+const chalk = require('chalk')
 const EvaluateProject = require('../src/EvaluateProject')
 
 let pathValue = process.env.PWD
@@ -19,4 +20,21 @@ if (ignoreIndex > -1) {
 debug('path:', pathValue)
 debug('ignore:', ignoreValue)
 
-console.log(EvaluateProject.getAllUnusedExports(pathValue, ignoreValue))
+function printResults(results) {
+    if (results && results.length > 0) {
+        for (let entry of results) {
+            console.log('\nFile:\t', chalk.red.bold(entry.file))
+            console.log('Unused exports:')
+            for (let exp of entry.unusedExports) {
+                console.log('\t', chalk.blue(exp))
+            }
+            console.log('')
+        }
+        console.log(chalk.red.bold(`${results.length} modules have unused exports!`))
+    } else {
+        console.log(chalk.green('No unused exports found!'))
+    }
+}
+
+let result = EvaluateProject.getAllUnusedExports(pathValue, ignoreValue)
+printResults(result)
