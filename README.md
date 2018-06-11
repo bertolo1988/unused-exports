@@ -7,11 +7,11 @@ Tries to find javascript module named exports that are not being used by other j
 
 ## How it works and how you should use it
 
-Tries to find where a given module named exports are being used by reading the code without interpreting it.
+It will recursively list all js files under a path, and by comparing required modules with module.exports it tries to find unused exports.
 
-This method has several limitations but still might help you finding dead or unnecessary code in big projects.
+This method has several limitations but still might help you finding dead or poorly maintained code in big projects.
 
-You should manually confirm the results before removing any potential dead code. 
+You should manually confirm the results before removing any code. 
 
 ## Install
 
